@@ -1,0 +1,7 @@
+<div class="large-12 columns text-center">
+  <tabset>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" class="smallertab">
+      <div ng-include="tab.template"></div>
+    </tab>
+  </tabset>
+</div>

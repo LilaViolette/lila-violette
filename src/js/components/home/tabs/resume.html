@@ -1,0 +1,22 @@
+<div class="row text-left">
+  <div ng-repeat = "(title, content) in data.resume track by $index">
+    <h4>{{title}}</h4>
+    <p ng-if = "content.style == 'paragraph'">
+      {{content.paragraph}}
+    </p>
+    <p ng-if = "content.style == 'lines'">
+      <span ng-repeat = "line in content.paragraph track by $index">{{line}}<br></span>
+    </p>
+    <span ng-if = "content.style == 'list'">
+      <ul><li ng-repeat = "item in content.list track by $index">{{item.value}}</li></ul>
+    </span>
+    <span ng-if = "content.style == 'double'">
+      <span ng-repeat="innerList in content.list track by $index">
+        <h5>{{innerList.title}}</h5>
+        <ul>
+          <li ng-repeat="item in innerList.value track by $index">{{item.value}}</li>
+        </ul>
+      </span>
+    </span>
+  </div>
+</div>
